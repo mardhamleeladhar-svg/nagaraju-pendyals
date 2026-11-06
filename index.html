@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nagaraju Pendyals - Wedding pandals, event tents, chairs, tables and event decorations in Tirupati.">
+<title>Nagaraju Pendyals | Tirupati</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #e75480;
+    --dark-pink: #b83262;
+    --light-pink: #fff0f5;
+    --white: #ffffff;
+    --dark: #34212a;
+    --muted: #725d66;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff8fb;
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+header {
+    background: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--dark-pink);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    padding: 10px 13px;
+    color: var(--dark);
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+nav button:hover,
+nav button.active {
+    background: var(--pink);
+    color: white;
+}
+
+.page {
+    display: none;
+    min-height: 75vh;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    min-height: 570px;
+    padding: 70px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(70,20,40,0.60), rgba(70,20,40,0.60)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85");
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 950px;
+}
+
+.hero-small {
+    font-size: 21px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 85px);
+    line-height: 1.12;
+    margin: 15px 0;
+    color: #fff;
+    text-shadow: 2px 3px 8px rgba(0,0,0,0.4);
+}
+
+.hero-subtitle {
+    font-size: clamp(18px, 3vw, 25px);
+    margin: 15px 0;
+}
+
+.hero-services {
+    margin: 20px 0 30px;
+    font-size: 17px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 25px;
+    margin: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.primary-button {
+    background: var(--pink);
+    color: white;
+}
+
+.secondary-button {
+    background: white;
+    color: var(--dark-pink);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.section {
+    padding: 55px 7%;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--dark-pink);
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.section-description {
+    max-width: 850px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+}
+
+.about-page {
+    max-width: 1050px;
+    margin: auto;
+    padding: 55px 7%;
+}
+
+.about-page p {
+    margin: 16px 0;
+    font-size: 17px;
+    color: var(--muted);
+}
+
+.about-highlight {
+    color: var(--dark-pink) !important;
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+.services-grid,
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.service-card,
+.gallery-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.service-card:hover,
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 25px rgba(184,50,98,0.15);
+}
+
+.service-card {
+    cursor: pointer;
+    text-align: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.service-card-content {
+    padding: 18px;
+}
+
+.service-card h3 {
+    color: var(--dark-pink);
+    margin-bottom: 8px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-card p {
+    padding: 12px;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.pagination button {
+    background: white;
+    border: 1px solid var(--pink);
+    color: var(--dark-pink);
+    padding: 9px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pagination button.active,
+.pagination button:hover {
+    background: var(--pink);
+    color: white;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.form-container {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    text-align: left;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #e6c5d2;
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: var(--pink);
+}
+
+.form-container textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.reviews-grid {
+    max-width: 1100px;
+    margin: 25px auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.review-card {
+    background: white;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.review-card h3 {
+    color: var(--dark-pink);
+}
+
+.stars {
+    color: #f2a900;
+    margin: 8px 0;
+    letter-spacing: 3px;
+}
+
+.contact-box {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.contact-box p {
+    margin: 15px 0;
+    font-size: 17px;
+}
+
+.contact-box a {
+    color: var(--dark-pink);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    background: #4b2636;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media(max-width: 900px) {
+    .services-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width: 600px) {
+    header {
+        justify-content: center;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav button {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 50px 5%;
+    }
+
+    .hero-small {
+        font-size: 16px;
+        letter-spacing: 3px;
+    }
+
+    .services-grid,
+    .gallery-grid,
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 27px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌸 NAGARAJU PENDYALS</div>
+
+    <nav>
+        <button class="active" onclick="showPage('homePage',this)">Home</button>
+        <button onclick="showPage('aboutPage',this)">About</button>
+        <button onclick="showPage('servicesPage',this)">Services</button>
+        <button onclick="showPage('feedbackPage',this)">Feedback</button>
+        <button onclick="showPage('reviewsPage',this)">Reviews</button>
+        <button onclick="showPage('contactPage',this)">Contact</button>
+    </nav>
+</header>
+
+<!-- HOME PAGE -->
+<div id="homePage" class="page active">
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-small">WELCOME TO</p>
+
+            <h1>NAGARAJU<br>PENDYALS</h1>
+
+            <p class="hero-subtitle">
+                Making Your Special Occasions Beautiful & Memorable
+            </p>
+
+            <p class="hero-services">
+                Wedding Pandals • Event Tents • Chairs • Tables • Decorations
+            </p>
+
+            <button class="primary-button"
+                onclick="showPage('servicesPage')">
+                Explore Our Services
+            </button>
+
+            <a class="secondary-button"
+                href="https://wa.me/919347211359"
+                target="_blank"
+                rel="noopener">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Welcome to Nagaraju Pendyals</h2>
+
+        <p class="section-description">
+            Planning a wedding, family function or special celebration?
+            We provide event arrangements and rental items to help make
+            your occasion special. Contact us in Tirupati to discuss
+            your requirements.
+        </p>
+
+        <button class="primary-button"
+            onclick="showPage('aboutPage')">
+            Know More About Us
+        </button>
+    </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="aboutPage" class="page">
+    <section class="about-page">
+        <h2 class="section-title">About Nagaraju Pendyals</h2>
+
+        <p class="about-highlight">
+            Your Trusted Partner for Beautiful Event Arrangements in Tirupati
+        </p>
+
+        <p>
+            Welcome to Nagaraju Pendyals! We help make your special
+            occasions more beautiful with event arrangements for weddings,
+            family functions, celebrations and other special events.
+        </p>
+
+        <p>
+            We provide wedding pandals, event tents, chairs, tables,
+            iron poles, stage decorations, lighting decorations and
+            flower decorations. Our aim is to make event arrangements
+            convenient for our customers by bringing different event
+            requirements together in one place.
+        </p>
+
+        <p>
+            Whether you are planning a wedding, a family celebration or
+            a special gathering, you can contact us to discuss your
+            requirements and arrangements.
+        </p>
+
+        <h2 class="section-title" style="margin-top:35px;">
+            Why Choose Nagaraju Pendyals?
+        </h2>
+
+        <div class="services-grid">
+            <div class="service-card service-card-content">
+                <h3>🎪 Event Arrangements</h3>
+                <p>Different event items and arrangements for your occasions.</p>
+            </div>
+
+            <div class="service-card service-card-content">
+                <h3>💐 Special Occasions</h3>
+                <p>Arrangements for weddings, celebrations and family functions.</p>
+            </div>
+
+            <div class="service-card service-card-content">
+                <h3>📍 Tirupati Service</h3>
+                <p>Contact us for event arrangements in and around Tirupati.</p>
+            </div>
+
+            <div class="service-card service-card-content">
+                <h3>🤝 Customer Support</h3>
+                <p>Contact us to discuss your event needs and requirements.</p>
+            </div>
+        </div>
+
+        <div style="text-align:center;">
+            <button class="primary-button"
+                onclick="showPage('contactPage')">
+                Contact Nagaraju Pendyals
+            </button>
+        </div>
+    </section>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="servicesPage" class="page">
+    <section class="section">
+        <h2 class="section-title">Our Services</h2>
+
+        <p class="section-description">
+            Explore our event rental categories. Click any category
+            to view its sample photos.
+        </p>
+
+        <div id="servicesGrid" class="services-grid"></div>
+        <div id="servicesPagination" class="pagination"></div>
+    </section>
+</div>
+
+<!-- GALLERY PAGE -->
+<div id="galleryPage" class="page">
+    <section class="section">
+        <button class="primary-button" onclick="backToServices()">
+            ← Back to Services
+        </button>
+
+        <h2 id="galleryTitle" class="section-title">Gallery</h2>
+
+        <p id="galleryDescription" class="section-description"></p>
+
+        <div id="photoGrid" class="gallery-grid"></div>
+        <div id="galleryPagination" class="pagination"></div>
+    </section>
+</div>
+
+<!-- FEEDBACK PAGE -->
+<div id="feedbackPage" class="page">
+    <section class="section">
+        <h2 class="section-title">Share Your Feedback</h2>
+
+        <p class="section-description">
+            Your feedback helps us improve our service.
+            Please share your experience with Nagaraju Pendyals.
+        </p>
+
+        <form id="feedbackForm" class="form-container">
+            <label for="customerName">Your Name</label>
+            <input
+                type="text"
+                id="customerName"
+                maxlength="60"
+                placeholder="Enter your name"
+                required>
+
+            <label for="customerRating">Your Rating</label>
+            <select id="customerRating" required>
+                <option value="">Select rating</option>
+                <option value="5">⭐⭐⭐⭐⭐ - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ - Very Good</option>
+                <option value="3">⭐⭐⭐ - Good</option>
+                <option value="2">⭐⭐ - Average</option>
+                <option value="1">⭐ - Poor</option>
+            </select>
+
+            <label for="customerComment">Your Feedback</label>
+            <textarea
+                id="customerComment"
+                maxlength="1000"
+                placeholder="Write your feedback..."
+                required></textarea>
+
+            <button type="submit" class="primary-button">
+                Submit Feedback
+            </button>
+
+            <p id="feedbackMessage" class="message"></p>
+        </form>
+    </section>
+</div>
+
+<!-- REVIEWS PAGE -->
+<div id="reviewsPage" class="page">
+    <section class="section">
+        <h2 class="section-title">Customer Reviews</h2>
+
+        <p class="section-description">
+            Read feedback shared by our customers.
+        </p>
+
+        <div id="reviewsMessage" class="message">
+            Loading reviews...
+        </div>
+
+        <div id="reviewsGrid" class="reviews-grid"></div>
+    </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contactPage" class="page">
+    <section class="section">
+        <h2 class="section-title">Contact Us</h2>
+
+        <p class="section-description">
+            Contact Nagaraju Pendyals for your wedding and event
+            arrangement requirements.
+        </p>
+
+        <div class="contact-box">
+            <p>📞 <strong>Phone:</strong>
+                <a href="tel:9347211359">9347211359</a>
+            </p>
+
+            <p>💬 <strong>WhatsApp:</strong>
+                <a href="https://wa.me/919347211359"
+                   target="_blank" rel="noopener">
+                    Chat with us on WhatsApp
+                </a>
+            </p>
+
+            <p>📍 <strong>Address:</strong><br>
+                H. No. 20-2-624/6, near Gurava Reddy Samadulu,
+                Korlagunta, Maruthi Nagar, Tirupati,
+                Andhra Pradesh 517501.
+            </p>
+
+            <a class="primary-button"
+                href="https://www.google.com/maps/search/?api=1&query=H.No.20-2-624%2F6+Korlagunta+Maruthi+Nagar+Tirupati+517501"
+                target="_blank"
+                rel="noopener">
+                Open Google Maps
+            </a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p><strong>NAGARAJU PENDYALS</strong></p>
+    <p>Wedding Pandals | Event Tents | Event Arrangements</p>
+    <p>Tirupati, Andhra Pradesh</p>
+    <p>Phone: 9347211359</p>
+    <p>© 2026 Nagaraju Pendyals. All Rights Reserved.</p>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>
